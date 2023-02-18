@@ -1,0 +1,10 @@
+.bundle/
+Gemfile
+Gemfile.lock
+
+.vscode/
+
+packer/boxes/
+
+.ruby-version
+
