@@ -9,3 +9,7 @@ package:
 clean:
 	pushd boxes/ && (vagrant destroy -f &> /dev/null || true) && popd
 	find boxes -type f,d -not \( -name '.keep' -or -name 'boxes' \) -delete
+
+.PHONY: up
+up:
+	pushd boxes/ && vagrant up source && popd

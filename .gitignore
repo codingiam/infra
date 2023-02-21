@@ -9,3 +9,6 @@ packer/boxes/
 .ruby-version
 
 .envrc
+
+ansible/ansible.cfg
+ansible/hosts
