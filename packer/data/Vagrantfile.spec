@@ -28,6 +28,11 @@ Vagrant.configure("2") do |config|
     virtualbox.memory = 8192
   end
 
+  config.vm.provision "ansible" do |ansible|
+    ansible.verbose = "v"
+    ansible.playbook = "../../ansible/site.yml"
+  end
+
   config.disksize.size = "160GB"
 
   config.vm.network "forwarded_port", guest: 22, host: 2222, host_ip: "0.0.0.0", id: "ssh"

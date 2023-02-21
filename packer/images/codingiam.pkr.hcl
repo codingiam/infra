@@ -37,8 +37,4 @@ source "vagrant" "vm" {
 
 build {
   sources = ["source.vagrant.vm"]
-
-  provisioner "shell" {
-    script = "scripts/setup.sh"
-  }
 }

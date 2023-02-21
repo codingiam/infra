@@ -8,3 +8,4 @@ packer/boxes/
 
 .ruby-version
 
+.envrc

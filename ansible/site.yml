@@ -1,0 +1,20 @@
+---
+- name: Packer Provisioning Playbook
+  hosts: all
+  gather_facts: false
+  pre_tasks:
+    - name: Install python package
+      become: true
+      raw: "pacman -S --noconfirm python &> /dev/null"
+      args:
+        executable: /usr/bin/bash
+  tasks:
+    - name: Configure SSH access
+      become: true
+      import_tasks: tasks/ssh.yml
+  handlers:
+    - name: Restart sshd
+      become: true
+      ansible.builtin.service:
+        name: sshd
+        state: restarted

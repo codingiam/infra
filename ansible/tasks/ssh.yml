@@ -1,0 +1,12 @@
+---
+- name: Disallow SSH password authentication
+  lineinfile:
+    path: "/etc/ssh/sshd_config"
+    regex: "^(#)?{{item.key}}"
+    line: "{{item.key}} {{item.value}}"
+    state: present
+  loop:
+    - { key: "PasswordAuthentication", value: "no" }
+    - { key: "ChallengeResponseAuthentication", value: "no" }
+  # notify:
+  #   - Restart sshd
